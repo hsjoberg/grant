@@ -1,9 +1,8 @@
-	---
+---
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Blixt Wallet Grant Application">
-	<!-- <h1>Blixt Wallet Project's Grant Application</h1> -->
 	<h2>Background</h2>
 	<p>
 		In the aftermath of the great blocksize war, the Lightning Network sprung up as a feasible scaling solution for the Bitcoin Network.
@@ -21,7 +20,7 @@ import Layout from '../layouts/Layout.astro';
 	<p>
 		Blixt Wallet is an open-source non-custodial Bitcoin Lightning Wallet for Android, iOS and macOS.
 		It's a full Lightning node running a real lnd node inside the mobile app, giving tremendous power, utility and flexibility for the user.
-		Rather than abstacting away concepts such as channels, Blixt Wallet tries to present them in a pedagogical way.
+		Rather than abstracting away concepts such as channels, Blixt Wallet tries to present them in a pedagogical way.
 	</p>
 	<p>
 		Users enjoy a convenient default operation. Funds being sent to the wallet (on-chain or Lightning) will make use of the
@@ -33,10 +32,10 @@ import Layout from '../layouts/Layout.astro';
 		This makes sure that users will have a good experience when using the wallet.
 	</p>
 	<p>
-		For users that want more control, Blixt Wallet is designed to be customizable and they can enjoy a rich set of options.
+		For users who want more control, Blixt Wallet is designed to be customizable and they can enjoy a rich set of options.
 		They can choose to sync with their own Bitcoin node.
 		They can choose to stay more private by enabling the built-in Tor functionality.
-		If they have their own Lightning routing node, they can open a channel towards it instead our Lightning node.
+		If they have their own Lightning routing node, they can open a channel towards it instead of our Lightning node.
 	</p>
 	<p>
 		We keep up with cutting edge development and the app has very rich support for emerging technologies such as LNURL, Lightning Address, WebLN, Keysend and more.
@@ -74,7 +73,7 @@ import Layout from '../layouts/Layout.astro';
 		Blixt Wallet is being developed with a Bitcoin ethos. The application is fully open-source with an MIT license.
 		<br />
 		All related services and projects such as Dunder LSP are also open-source and users can choose to run their own LSP
-		if they wanted to.
+		if they want to.
 		<br />
 	</p>
 	<h2>Planning for the future</h2>
@@ -102,7 +101,7 @@ import Layout from '../layouts/Layout.astro';
 	</p>
 	<h3>Desktop versions</h3>
 	<div style="float: right; margin-left: 16px">
-		<img src="https://user-images.githubusercontent.com/3824379/196162476-d3d0bd94-4e12-41cc-9336-cc1f31dd0306.png" width="180" />
+		<img src="https://user-images.githubusercontent.com/3824379/196162476-d3d0bd94-4e12-41cc-9336-cc1f31dd0306.png" width="200" />
 		<div><small>Blixt Wallet for macOS</small></div>
 	</div>
 	<p>
@@ -111,7 +110,7 @@ import Layout from '../layouts/Layout.astro';
 	</p>
 	<p>
 		As Blixt Wallet is developed in react-native, this means that most of the codebase can be re-used for other platforms.
-		Work is already on-going on an Linux version, but we plan to start working on a Windows version as well.
+		Work is already on-going on a Linux version, but we plan to start working on a Windows version as well.
 	</p>
 	<div style="clear: both"></div>
 	<h3>Lightning Box</h3>
@@ -130,7 +129,7 @@ import Layout from '../layouts/Layout.astro';
 		The options are either to host your own infrastructure or use a custodial wallet.
 	</p>
 	<p>
-		While our Lightning Box solution is custodial, it's supposed to minimize risks and providers may choose to limit the max amount of
+		While our Lightning Box solution is custodial, it's supposed to minimize risks and providers may choose to limit the max amount that
 		the Box will hold for each user. The user is supposed to withdraw from the box as soon as possible.
 	</p>
 	<p>
@@ -140,7 +139,7 @@ import Layout from '../layouts/Layout.astro';
 	<p>
 		In order to keep up with the chain, Blixt Wallet on Android sync via a background job every 3 hours.
 		<br />
-		However, depedning on phone vendor and other factors, it's not a guarantee that the sync job will start up.
+		However, depending on phone vendor and other factors, it's not a guarantee that the sync job will start up.
 		Furthermore this feature is not available for iOS.
 	</p>
 	<p>
@@ -156,11 +155,6 @@ import Layout from '../layouts/Layout.astro';
 	<p>
 		In order to improve user experience, we are working on optimizing chain and lightning graph synchronization.
 	</p>
-	<h3>Further LNURL work</h3>
-	<p>
-		Blixt Wallet has rich support for the LNURL protocol suite and we plan to keep working together with the LNURL community.
-	</p>
-	<h3>Nostr</h3>
 
 	<h2>Financials</h2>
 	<p>
@@ -221,8 +215,7 @@ import Layout from '../layouts/Layout.astro';
 		margin-top: 20px;
 		display: flex;
 		flex-direction: row;
-		width: 800px;
-		/* background-color: red; */
+		max-width: 800px;
 	}
 
 	.blixt-community img {
