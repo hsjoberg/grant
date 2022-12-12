@@ -1,0 +1,265 @@
+	---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Blixt Wallet Grant Application">
+	<!-- <h1>Blixt Wallet Project's Grant Application</h1> -->
+	<h2>Background</h2>
+	<p>
+		In the aftermath of the great blocksize war, the Lightning Network sprung up as a feasible scaling solution for the Bitcoin Network.
+		Over the years we have seen tremendous progress and adoption with lots of projects, innovations, ideas that make the network more robust.
+	</p>
+	<p>
+		There has been great progress in making Lightning easier to use, with concepts such as Lightning Service Provider helping and guiding the user
+		regarding things such as channel management.
+	</p>
+	<p>
+		We have also seen protocols making Lightning Network wallets be more interoperable with the web, with the web protocol suite LNURL along with
+		the Lightning Address format.
+	</p>
+	<h2>Enter Blixt Wallet</h2>
+	<p>
+		Blixt Wallet is an open-source non-custodial Bitcoin Lightning Wallet for Android, iOS and macOS.
+		It's a full Lightning node running a real lnd node inside the mobile app, giving tremendous power, utility and flexibility for the user.
+		Rather than abstacting away concepts such as channels, Blixt Wallet tries to present them in a pedagogical way.
+	</p>
+	<p>
+		Users enjoy a convenient default operation. Funds being sent to the wallet (on-chain or Lightning) will make use of the
+		Blixt Lightning Service Provider called Dunder. This means it's easy for new users to get on-boarded to the Lightning Network.
+	</p>
+	<p>
+		The Blixt Wallet project has an official Lightning node (LSP) that wallet users can open channels to.
+		The node is well connected within the network and usually ranks high in node scoring lists.
+		This makes sure that users will have a good experience when using the wallet.
+	</p>
+	<p>
+		For users that want more control, Blixt Wallet is designed to be customizable and they can enjoy a rich set of options.
+		They can choose to sync with their own Bitcoin node.
+		They can choose to stay more private by enabling the built-in Tor functionality.
+		If they have their own Lightning routing node, they can open a channel towards it instead our Lightning node.
+	</p>
+	<p>
+		We keep up with cutting edge development and the app has very rich support for emerging technologies such as LNURL, Lightning Address, WebLN, Keysend and more.
+	</p>
+	<p>
+		Blixt Wallet stays close to lnd and the wallet is running it internally without any modifications. This means that Blixt Wallet funds
+		can easily be recovered via lnd on desktop.
+		<br />
+		Because of this design choice, Blixt Wallet is usually the go-to solution for users with an Umbrel node that has stopped working. They can
+		safely recover their funds by restoring with Blixt Wallet.
+	</p>
+	<h2>Strong Community</h2>
+	<div style="float: left; margin-right: 16px">
+		<img src="/growth.jpg" width="220" />
+		<div><small>Active Android users</small></div>
+	</div>
+	<p>
+		Despite being one of the smaller wallets, Blixt Wallet has a strong and helpful community. Users in need of help have a lot of guides and resources
+		at their disposal.
+		<br />
+		The official Telegram chat group is very active with over 500 users. This is comparable to other more popular Lightning wallets.
+		We have a healthy set of enthusiastic users and contributors.
+	</p>
+	<p>
+		Ever since mid 2021, Blixt Wallet is seeing a steady growth in number of users.
+		The app is spreading via grassroots support and we see independent people reviewing Blixt Wallet on YouTube, Twitter and other platforms.
+		<br />
+		Blixt Wallet is especially growing in Spanish-speaking countries, with an estimate of 50% users being Spanish-speaking.
+		Since version 0.6.0 the app is translated into Spanish (along with 8 other languages).
+	</p>
+	<div style="clear: both"></div>
+
+	<h2>A Bitcoin ethos midset</h2>
+	<p>
+		Blixt Wallet is being developed with a Bitcoin ethos. The application is fully open-source with an MIT license.
+		<br />
+		All related services and projects such as Dunder LSP are also open-source and users can choose to run their own LSP
+		if they wanted to.
+		<br />
+	</p>
+	<h2>Planning for the future</h2>
+	<p>
+		The Blixt Wallet project has many plans moving forward and we will list the larger topics here.
+	</p>
+	<h3>Dunder LSP</h3>
+	<p>
+		Dunder LSP is our Lightning Service Provider software.
+		<br />
+		It's built in NodeJS and works together with a normal lnd node. This makes it easy for anyone to run their own LSP
+		if they wanted to.
+		<br />
+		Dunder LSP works together with Blixt Wallet, but other Lightning wallets can also choose to support it.
+	</p>
+	<p>
+		It currently supports on-demand channels, meaning Dunder LSP can open a channel on-the-fly if the user does not have
+		sufficient inbound liquidity.
+		The user simply has to create an invoice inside Blixt Wallet and Dunder LSP will automatically kick in.
+		<br />
+		This functionality is currently under open beta. We wish to make the service robust and production-ready.
+	</p>
+	<p>
+		We wish to further extend the LSP software with other functionality such as LN<->on-chain swaps and other features.
+	</p>
+	<h3>Desktop versions</h3>
+	<div style="float: right; margin-left: 16px">
+		<img src="https://user-images.githubusercontent.com/3824379/196162476-d3d0bd94-4e12-41cc-9336-cc1f31dd0306.png" width="180" />
+		<div><small>Blixt Wallet for macOS</small></div>
+	</div>
+	<p>
+		Since version 0.6.0, Blixt Wallet is also avaiable on the macOS, joining as one of the few Lightning wallets for the desktop.
+		We wish to further establish Blixt Wallet on the desktop with Windows and Linux versions too.
+	</p>
+	<p>
+		As Blixt Wallet is developed in react-native, this means that most of the codebase can be re-used for other platforms.
+		Work is already on-going on an Linux version, but we plan to start working on a Windows version as well.
+	</p>
+	<div style="clear: both"></div>
+	<h3>Lightning Box</h3>
+	<p>
+		Lightning Box is a trust-minimized Lightning Address solution for non-custodial wallets.
+		<br />
+		The Lightning Box provider will take payments on behalf of the user and then notify them via a communication medium.
+		The user can then open up their wallet in order to drain the cached funds via LNURL-withdraw.
+	</p>
+	<p>
+		If the user wallet is already online at the time of the payment, the funds can be forwarded to the wallet, without requiring any trust.
+	</p>
+	<p>
+		Lightning Address is a tricky problem to solve for non-custodial wallets.
+		Right now if you want to use Lightning Address, there is no non-custodial mobile wallet that you can use.
+		The options are either to host your own infrastructure or use a custodial wallet.
+	</p>
+	<p>
+		While our Lightning Box solution is custodial, it's supposed to minimize risks and providers may choose to limit the max amount of
+		the Box will hold for each user. The user is supposed to withdraw from the box as soon as possible.
+	</p>
+	<p>
+		With the same design as Dunder LSP, the Lightning Box software will also be easy to self-deploy, only requiring an lnd node and NodeJS.
+	</p>
+	<h3>Push notification chain syncing via Firebase</h3>
+	<p>
+		In order to keep up with the chain, Blixt Wallet on Android sync via a background job every 3 hours.
+		<br />
+		However, depedning on phone vendor and other factors, it's not a guarantee that the sync job will start up.
+		Furthermore this feature is not available for iOS.
+	</p>
+	<p>
+		In order to improve upon this, we plan to implement Firebase high-priority push notifications.
+		This has a stronger guarantee of waking the app up on Android and will allow scheduled background sync for
+		the first time on our iOS app.
+	</p>
+	<h3>Bitcoin.Design collaboration</h3>
+	<p>
+		We have a collaboration with the Bitcoin Design collective, with focus on revamping the on-boarding experience.
+	</p>
+	<h3>Sync optimizations</h3>
+	<p>
+		In order to improve user experience, we are working on optimizing chain and lightning graph synchronization.
+	</p>
+	<h3>Further LNURL work</h3>
+	<p>
+		Blixt Wallet has rich support for the LNURL protocol suite and we plan to keep working together with the LNURL community.
+	</p>
+	<h3>Nostr</h3>
+
+	<h2>Financials</h2>
+	<p>
+		Since the project's inception in the beginning of 2019. It has been self-funded by the founder Hampus Sjöberg.
+	</p>
+	<p>
+		In order to keep this project going and stay independent, we are seeking a grant to cover the following:
+	</p>
+	<ul>
+		<li>Full-time salary for Hampus Sjöberg of $50k/year</li>
+		<li>Minor server costs of $1200/year</li>
+		<li>Liqudity to keep our Dunder LSP instance running</li>
+	</ul>
+	<p>
+		Thank you for considering our project proposal.
+		<br />
+		Hampus Sjöberg, Darthcoin and community members.
+	</p>
+	<div class="blixt-community">
+		<div class="hampus">
+			<img src="/blixt/hampus.jpg" />
+		</div>
+		<!--div class="blixt-contributors">
+			<div class="darthcoin">
+				<img src="/blixt/darthcoin.jpg" />
+			</div>
+			<div class="community-members">
+				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
+				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
+				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
+				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
+				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
+				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
+				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
+			</div>
+		</div-->
+	</div>
+	<div style="clear: both"></div>
+
+	<h2>Contact</h2>
+	<ul>
+		<li>Website: <a href="https://blixtwallet.com" target="_blank">blixtwallet.com</a></li>
+		<li>Email: hampus.sjoberg at protonmail.com</li>
+		<li>Telegram group: <a href="https://t.me/blixtwallet" target="_blank">@BlixtWallet</a></li>
+		<li>GitHub project: <a href="https://github.com/hsjoberg/blixt-wallet" target="_blank">hsjoberg/blixt-wallet</a></li>
+
+	</ul>
+</Layout>
+
+<style>
+	h1 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin: 0;
+	}
+
+	.blixt-community {
+		margin-top: 20px;
+		display: flex;
+		flex-direction: row;
+		width: 800px;
+		/* background-color: red; */
+	}
+
+	.blixt-community img {
+		padding: 1px
+	}
+
+	.hampus {
+
+	}
+
+	.hampus img {
+		width: 150px;
+		border-radius: 128px;
+	}
+
+	.darthcoin {
+
+	}
+
+	.darthcoin img {
+		width: 75px;
+		border-radius: 64px;
+	}
+
+	.blixt-contributors {
+		display: flex;
+		flex-direction: row;
+		flex: 1;
+	}
+
+	.community-member {
+		display: inline-block;
+		padding: 2px;
+	}
+
+	.community-member img {
+		width: 32px;
+		border-radius: 32px;
+	}
+</style>
