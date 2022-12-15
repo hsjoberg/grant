@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BlixtCommunity from '../components/BlixtCommunity';
 ---
 
 <Layout title="Blixt Wallet Grant Application">
@@ -171,29 +172,9 @@ import Layout from '../layouts/Layout.astro';
 	<p>
 		Thank you for considering our project proposal.
 		<br />
-		Hampus Sjöberg, Darthcoin and community members.
+	  Hampus Sjöberg, Darthcoin and community members.
 	</p>
-	<div class="blixt-community">
-		<div class="hampus">
-			<img src="/blixt/hampus.jpg" />
-		</div>
-		<!--div class="blixt-contributors">
-			<div class="darthcoin">
-				<img src="/blixt/darthcoin.jpg" />
-			</div>
-			<div class="community-members">
-				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
-				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
-				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
-				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
-				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
-				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
-				<div class="community-member"><img src="/blixt/softsimon.jpg" /></div>
-			</div>
-		</div-->
-	</div>
-	<div style="clear: both"></div>
-
+	<BlixtCommunity client:visible />
 	<h2>Contact</h2>
 	<ul>
 		<li>Website: <a href="https://blixtwallet.com" target="_blank">blixtwallet.com</a></li>
