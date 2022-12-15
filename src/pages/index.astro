@@ -14,7 +14,7 @@ import BlixtCommunity from '../components/BlixtCommunity';
 		regarding things such as channel management.
 	</p>
 	<p>
-		We have also seen protocols making Lightning Network wallets be more interoperable with the web, with the web protocol suite LNURL along with
+		We have also seen protocols making Lightning Network wallets more interoperable with the web, with the web protocol suite LNURL along with
 		the Lightning Address format, WebLN and other technologies.
 	</p>
 	<h2>Enter Blixt Wallet</h2>
@@ -27,7 +27,7 @@ import BlixtCommunity from '../components/BlixtCommunity';
 	</p>
 	<p>
 		Users enjoy a convenient default configuration, but rather than abstracting away concepts such as channels, Blixt Wallet tries to present them in a pedagogical way.
-		Funds being sent to the wallet (on-chain or Lightning) will make use of the Blixt Lightning Service Provider called
+		Funds sent to the wallet (on-chain or Lightning) will make use of the Blixt Lightning Service Provider called
 		<a href="https://github.com/hsjoberg/dunder-lsp" target="_blank">Dunder</a>. This means it's easy for new users to get on-boarded to the Lightning Network.
 	</p>
 	<p>
@@ -38,7 +38,7 @@ import BlixtCommunity from '../components/BlixtCommunity';
 	</p>
 	<p>
 		The Blixt Wallet project has an official <a href="https://mempool.space/lightning/node/0230a5bca558e6741460c13dd34e636da28e52afd91cf93db87ed1b0392a7466eb" target="_blank">Lightning node</a>
-		that wallet users can open channels to (with Dunder). The node is well connected within the network and usually ranks high in node scoring lists.
+		that wallet users can open channels to (with Dunder). The node is well connected within the network and usually ranks high on node scoring lists.
 		This makes sure that users will have a good experience when using the wallet.
 	</p>
 	<p>
@@ -48,16 +48,16 @@ import BlixtCommunity from '../components/BlixtCommunity';
 		Blixt Wallet stays close to lnd and the wallet is running it internally without any modifications. This means that Blixt Wallet funds
 		can easily be recovered via lnd on desktop.
 		Because of this design choice, Blixt Wallet is usually the go-to solution for users with an Umbrel node that has stopped working. They can
-		safely recover their funds by restoring with Blixt Wallet.
+		safely recover their funds by restoring them with Blixt Wallet.
 	</p>
 	<p>
 		Blixt Wallet also has a lot of unique features that makes it stick out, such as a Contact List for LNURL-pay, LNURL-withdraw and Lightning Address codes. This will be further
-		be extended to support Keysend, BOLT12 and other emerging technologies.
+		extended to support Keysend, BOLT12 and other emerging technologies.
 		<br />
 	  We have also created <a href="https://github.com/lightning/blips/blob/master/blip-0011.md" target="_blank">bLIP-0011 NameDesc</a>, which is a simple protocol to standardize
 		recipient naming conventions in BOLT-11 invoices.
 		<br />
-		Blixt Wallet is one of the few wallets that have Keysend support, letting users send payments to supported nodes and services without an invoice.
+		Blixt Wallet is one of the few wallets that has Keysend support, letting users send payments to supported nodes and services without an invoice.
 	</p>
 	<h2>Strong Community</h2>
 	<div style="float: left; margin-right: 16px">
@@ -75,8 +75,8 @@ import BlixtCommunity from '../components/BlixtCommunity';
 		Ever since mid 2021, Blixt Wallet is seeing a steady growth in number of users.
 		The app is spreading via grassroots support and we see independent people reviewing and posting about Blixt Wallet on YouTube, Twitter and other platforms.
 		<br />
-		Blixt Wallet is especially growing in Spanish-speaking countries, with an estimate of 50% users being Spanish-speaking.
-		Since version <a href="https://github.com/hsjoberg/blixt-wallet/releases/tag/v0.6.0" target="_blank">0.6.0</a> the app is translated
+		Blixt Wallet is especially growing in Spanish-speaking countries, with an estimated 50% of users being Spanish-speaking.
+		Since version <a href="https://github.com/hsjoberg/blixt-wallet/releases/tag/v0.6.0" target="_blank">0.6.0</a>, the app is translated
 		into Spanish (along with 8 other languages).
 	</p>
 	<p>
@@ -87,12 +87,16 @@ import BlixtCommunity from '../components/BlixtCommunity';
 
 	<h2>A Bitcoin ethos midset</h2>
 	<p>
-		Blixt Wallet is being developed with a Bitcoin ethos. The application is fully open-source with
+		Blixt Wallet is being developed with a Bitcoin ethos. The wallet is fully open-source with
 		an <a href="https://github.com/hsjoberg/blixt-wallet/blob/master/LICENSE" target="_blank">MIT license</a>.
 		<br />
 		All related services and projects such as Dunder LSP are also open-source and users can choose to run their own LSP
 		if they want to.
 		<br />
+	</p>
+	<p>
+		We stay committed to Bitcoin and focus solely on improving the Bitcoin and Lightning Network ecosystem. The wallet only supports Bitcoin and we envision a
+		world where Bitcoin would serve as the global, open and censorship-resistant currency.
 	</p>
 	<h2>Planning for the future</h2>
 	<p>
@@ -146,7 +150,7 @@ import BlixtCommunity from '../components/BlixtCommunity';
 	</p>
 	<p>
 		Lightning Address is a tricky problem to solve for non-custodial wallets.
-		Right now if you want to use Lightning Address, there is no non-custodial mobile wallet that you can use.
+		Right now, if you want to use Lightning Address, there is no non-custodial mobile wallet that you can use.
 		The options are either to host your own infrastructure or use a custodial wallet.
 	</p>
 	<p>
@@ -162,10 +166,10 @@ import BlixtCommunity from '../components/BlixtCommunity';
 	</p>
 	<h3>Push notification chain syncing via Firebase</h3>
 	<p>
-		In order to keep up with the chain, Blixt Wallet on Android sync via a background job every 3 hours.
+		In order to keep up with the chain, Blixt Wallet on Android syncs via a background job every 3 hours.
 		<br />
 		However, depending on phone vendor and other factors, it's not a guarantee that the sync job will start up.
-		Furthermore this feature is not available for iOS.
+		Furthermore, this feature is not available for iOS.
 	</p>
 	<p>
 		In order to improve upon this, we plan to implement Firebase high-priority push notifications.
@@ -174,8 +178,8 @@ import BlixtCommunity from '../components/BlixtCommunity';
 	</p>
 	<h3>Bitcoin.Design collaboration</h3>
 	<p>
-		We have a collaboration with the <a href="https://bitcoin.design" target="_blank">Bitcoin Design collective</a>, with focus
-		a project on revamping the on-boarding experience.
+		We have a collaboration with the <a href="https://bitcoin.design" target="_blank">Bitcoin Design collective</a>, with a
+	  project focusing on revamping the on-boarding experience.
 	</p>
 	<p>
 		There are design files ready for the revamped on-boarding and we plan to start implementing it into Blixt Wallet.
@@ -190,7 +194,7 @@ import BlixtCommunity from '../components/BlixtCommunity';
 		Since the project's inception in the beginning of 2019. It has been self-funded by the founder Hampus Sjöberg.
 	</p>
 	<p>
-		In order to keep this project going and stay independent, we are seeking a grant to cover the following:
+		In order to keep this project going and stay to independent, we are seeking a grant to cover the following:
 	</p>
 	<ul>
 		<li>Full-time salary for Hampus Sjöberg of $50k/year</li>
@@ -205,12 +209,12 @@ import BlixtCommunity from '../components/BlixtCommunity';
 	<BlixtCommunity client:visible />
 	<h2>Contact</h2>
 	<ul>
+		<li>GitHub project: <a href="https://github.com/hsjoberg/blixt-wallet" target="_blank">hsjoberg/blixt-wallet</a></li>
 		<li>Website: <a href="https://blixtwallet.com" target="_blank">blixtwallet.com</a></li>
 		<li>Email: hampus.sjoberg at protonmail.com</li>
+		<li>Telegram group: <a href="https://t.me/blixtwallet" target="_blank">@BlixtWallet</a></li>
 		<li>Hampus Telegram: <a href="https://t.me/hsjoberg" target="_blank">@hsjoberg</a></li>
 		<li>Hampus Twitter: <a href="https://twitter.com/hampus_s" target="_blank">@hampus_s</a></li>
-		<li>Telegram group: <a href="https://t.me/blixtwallet" target="_blank">@BlixtWallet</a></li>
-		<li>GitHub project: <a href="https://github.com/hsjoberg/blixt-wallet" target="_blank">hsjoberg/blixt-wallet</a></li>
 	</ul>
 </Layout>
 <style>
