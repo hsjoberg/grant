@@ -38,8 +38,8 @@ export default function BlixtCommunity() {
       </div>
       <div className="blixt-contributors">
         <div className="community-members">
-          {members.map((member) => (
-            <div className="community-member" title={member.name}><img src={`/blixt/${member.image}`} /></div>
+          {members.map((member, i) => (
+            <div key={i} className="community-member" title={member.name}><img src={`/blixt/${member.image}`} /></div>
           ))}
         </div>
       </div>
