@@ -9,7 +9,7 @@ const members: Members[] = [
   { name: "Eternalkr", image: "eternalkr.jpg" },
   { name: "fiatjaf", image: "fiatjaf.jpg" },
   { name: "softsimon", image: "softsimon.jpg" },
-  { name: "brandonholm", image: "brandonholm.jpg" },
+  { name: "Brandon Holm", image: "brandonholm.jpg" },
   { name: "lunaticoin", image: "lunaticoin.jpg" },
   { name: "erikb", image: "erikb.jpg" },
   { name: "ColBitcoin", image: "colbitcoin.jpg" },
@@ -28,6 +28,7 @@ const members: Members[] = [
   { name: "Hurly", image: "hurly.jpg" },
   { name: "daniele", image: "daniele.jpg" },
   { name: "w", image: "w.jpg" },
+  { name: "asi0", image: "asi0.jpg" },
 ];
 
 export default function BlixtCommunity() {
