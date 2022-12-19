@@ -3,7 +3,7 @@ interface Members {
   image: string;
 }
 const members: Members[] = [
-  { name: "Darthcoin", image: "darthcoin.jpg" },
+  { name: "DarthCoin", image: "darthcoin.jpg" },
   { name: "Nitesh", image: "nitesh.jpg" },
   { name: "Kevin Cai", image: "kevincai.jpg" },
   { name: "Eternalkr", image: "eternalkr.jpg" },
