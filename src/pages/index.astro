@@ -23,7 +23,7 @@ import BlixtCommunity from '../components/BlixtCommunity';
 		and non-custodial Bitcoin Lightning Wallet for Android, iOS and macOS.
 		<br />
 		It's a full Lightning node running a real vanilla <a href="https://github.com/lightningnetwork/lnd" target="_blank">lnd</a> node inside the mobile app,
-		giving tremendous power, utility and flexibility for the user. It uses Neutrino SPV in order to quickly sync the chain.
+		giving tremendous power, utility and flexibility for the user. It uses Neutrino SPV when syncing the chain, which preserves privacy.
 	</p>
 	<p>
 		Users enjoy a convenient default configuration, but rather than abstracting away concepts such as channels, Blixt Wallet tries to present them in a pedagogical way.
@@ -53,10 +53,14 @@ import BlixtCommunity from '../components/BlixtCommunity';
 		Blixt Wallet also has a lot of unique features that makes it stick out, such as a Contact List for LNURL-pay, LNURL-withdraw and Lightning Address codes. This will be further
 		extended to support Keysend, BOLT12 and other emerging technologies.
 		<br />
-	  We have also created <a href="https://github.com/lightning/blips/blob/master/blip-0011.md" target="_blank">bLIP-0011 NameDesc</a>, which is a simple protocol to standardize
+	    We have also created <a href="https://github.com/lightning/blips/blob/master/blip-0011.md" target="_blank">bLIP-0011 NameDesc</a>, which is a simple protocol to standardize
 		recipient naming conventions in BOLT-11 invoices.
 		<br />
 		Blixt Wallet is one of the few wallets that has Keysend support, letting users send payments to supported nodes and services without an invoice.
+	</p>
+	<p>
+		On Blixt Wallet for Android, users can enjoy Lightning Address support via our Lightning Box service. We have taken a <a href="https://github.com/hsjoberg/blips/blob/lnurl-forwarding/blip-lnurlforward.md" target="_blank">different approach</a>
+		to other self-custodial wallets in the space. Instead of using hodl invoices, Blixt Wallet will always remain active in the background in order to respond to incoming payment requests.
 	</p>
 	<h2>Strong Community</h2>
 	<div style="float: left; margin-right: 16px">
@@ -89,9 +93,8 @@ import BlixtCommunity from '../components/BlixtCommunity';
 		Blixt Wallet is being developed with a Bitcoin ethos. The wallet is fully open-source with
 		an <a href="https://github.com/hsjoberg/blixt-wallet/blob/master/LICENSE" target="_blank">MIT license</a>.
 		<br />
-		All related services and projects such as Dunder LSP are also open-source and users can choose to run their own LSP
+		All related services and projects such as Dunder LSP and Lightning Box are also open-source and users can choose to run their own LSP
 		if they want to.
-		<br />
 	</p>
 	<p>
 		We stay committed to Bitcoin and focus solely on improving the Bitcoin and Lightning Network ecosystem. The wallet only supports Bitcoin and we envision a
@@ -101,24 +104,23 @@ import BlixtCommunity from '../components/BlixtCommunity';
 	<p>
 		The Blixt Wallet project has many plans moving forward and we will list the larger topics here.
 	</p>
+	<h3>New app design</h3>
+	<p>
+		We intend to do a major overhaul of the app design and user-experience, integrating Dunder LSP, Lightning Address (Lightning Box) and possibly Nostr from the ground up.
+	</p>
 	<h3>Dunder LSP</h3>
 	<p>
 		<a href="https://github.com/hsjoberg/dunder-lsp" target="_blank">Dunder LSP</a> is our Lightning Service Provider software.
 		<br />
 		It's built in NodeJS and works together with a normal lnd node. This makes it easy for anyone to run their own LSP
 		if they want to.
-		<br />
-		Dunder LSP works together with Blixt Wallet, but other Lightning wallets can also choose to support it.
 	</p>
 	<p>
-		It currently supports on-demand channels, meaning Dunder LSP can open a channel on-the-fly if the user does not have
-		sufficient inbound liquidity.
-		The user simply has to create an invoice inside Blixt Wallet and Dunder LSP will automatically kick in.
-		<br />
-		This functionality is currently under open beta. We wish to make the service robust and production-ready.
+		Dunder LSP currently uses its own API, but we intend rework both our Dunder server and Blixt Wallet app to support the <a href="https://github.com/BitcoinAndLightningLayerSpecs/lsp">LSP spec</a>,
+		which would make it compatible with other wallets and LSPs in the ecosystem.
 	</p>
 	<p>
-		We wish to further extend the LSP software with other functionality such as LN&lt;-&gt;on-chain swaps and other features.
+		We also wish to further extend the LSP software with other functionality such as LN&lt;-&gt;on-chain swaps and other features.
 	</p>
 	<h3>Desktop versions</h3>
 	<div style="float: right; margin-left: 16px">
@@ -127,67 +129,27 @@ import BlixtCommunity from '../components/BlixtCommunity';
 	</div>
 	<p>
 		Since version <a href="https://github.com/hsjoberg/blixt-wallet/releases/tag/v0.6.0" target="_blank">0.6.0</a>,
-		Blixt Wallet is also available on the macOS, joining as one of the few Lightning wallets for the desktop.
-		We wish to further establish Blixt Wallet on the desktop with Windows and Linux versions too.
+		Blixt Wallet is also available on macOS, joining as one of the few Lightning wallets for the desktop.
 	</p>
 	<p>
-		Blixt Wallet is developed in react-native. This means that most of the codebase can be re-used for other platforms.
-		Work is already on-going on a <a href="https://github.com/hsjoberg/blixt-wallet/tree/electron" target="_blank">Linux version</a>,
-		but we plan to start working on a Windows version as well.
+		We are currently working on <a href="https://github.com/hsjoberg/blixt-wallet/tree/electron" target="_blank">Linux</a> and Windows versions too.
 	</p>
 	<div style="clear: both"></div>
-	<h3>Lightning Box</h3>
+	<h3>Chain side-loading sync optimization</h3>
 	<p>
-		<a href="https://github.com/hsjoberg/lightning-box" target="_blank">Lightning Box</a> is a trust-minimized
-		Lightning Address solution for non-custodial wallets.
-		<br />
-		The Lightning Box provider will take payments on behalf of the user and then notify them via a communication medium.
-		The user can then open up their wallet in order to drain the cached funds via LNURL-withdraw.
+		Blixt Wallet currently uses a neutrino SPV client in order to sync headers and compact filters from the P2P network.
+		As it can take some time syncing from the P2P network, we intend to add <a href="https://github.com/lightninglabs/neutrino/pull/285">side-loading functionality</a> to Blixt Wallet,
+		in order the data from an HTTP server instead. This would significantly speed up sync times.
 	</p>
+	<h3>PayJoin</h3>
 	<p>
-		If the user wallet is already online at the time of the payment, the funds can be forwarded to the wallet, without requiring any trust.
+		Privacy is a very important in order for Bitcoin to succeed as global censorship-resistant money.
+		We will work on implementing serverless PayJoin support to Blixt Wallet.
 	</p>
+	<h3>Miscellaneous features</h3>
 	<p>
-		Lightning Address is a tricky problem to solve for non-custodial wallets.
-		Right now, if you want to use Lightning Address, there is no non-custodial mobile wallet that you can use.
-		The options are either to host your own infrastructure or use a custodial wallet.
+		In order to improve Lightning privacy and performance, we will work on supporting upcoming features such as BOLT12, blinded paths and stuckless payments as they come available to the ecosystem.
 	</p>
-	<p>
-		While our Lightning Box solution is custodial, it's supposed to minimize risks and providers may choose to limit the max amount that
-		the Box will hold for each user. The user is supposed to withdraw from the box as soon as possible.
-	</p>
-	<p>
-		With the same design as Dunder LSP, the Lightning Box software will also be easy to self-deploy, only requiring an lnd node and NodeJS.
-	</p>
-	<p>
-		Long-term, we may work on a solution where the Lightning Box provider would wake up the app via a push notification in order
-		to receive the payment.
-	</p>
-	<h3>Push notification chain syncing via Firebase</h3>
-	<p>
-		In order to keep up with the chain, Blixt Wallet on Android syncs via a background job every 3 hours.
-		<br />
-		However, depending on phone vendor and other factors, it's not a guarantee that the sync job will start up.
-		Furthermore, this feature is not available for iOS.
-	</p>
-	<p>
-		In order to improve upon this, we plan to implement Firebase high-priority push notifications.
-		This has a stronger guarantee of waking the app up on Android and will allow scheduled background sync for
-		the first time on the iOS app.
-	</p>
-	<h3>Bitcoin.Design collaboration</h3>
-	<p>
-		We have a collaboration with the <a href="https://bitcoin.design" target="_blank">Bitcoin Design collective</a>, with a
-	  project focusing on revamping the on-boarding experience.
-	</p>
-	<p>
-		There are design files ready for the revamped on-boarding and we plan to start implementing it into Blixt Wallet.
-	</p>
-	<h3>Sync optimizations</h3>
-	<p>
-		In order to improve user experience, we are working on optimizing chain and lightning graph synchronization.
-	</p>
-
 	<h2>Financials</h2>
 	<p>
 		Since the project's inception in the beginning of 2019, it has been self-funded by the founder Hampus Sjöberg.
@@ -197,13 +159,13 @@ import BlixtCommunity from '../components/BlixtCommunity';
 	</p>
 	<ul>
 		<li>Full-time salary for Hampus Sjöberg of $100k/year</li>
-		<li>Minor server costs of $1200/year</li>
+		<li>Server costs of $2400/year</li>
 		<li>Liquidity to keep our Dunder LSP instance running</li>
 	</ul>
 	<p>
 		Thank you for considering our project proposal.
 		<br />
-	  <i>Hampus Sjöberg and community members.</i>
+	    <i>Hampus Sjöberg and community members.</i>
 	</p>
 	<BlixtCommunity client:visible />
 	<h2>Contact</h2>
