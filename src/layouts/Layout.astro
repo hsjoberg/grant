@@ -3,9 +3,10 @@ import { Tooltips } from 'astro-tooltips';
 
 export interface Props {
 	title: string;
+  project: "blixt" | "noah";
 }
 
-const { title } = Astro.props;
+const { title, project } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -20,12 +21,19 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-    <header class="head">
+    <header class="head" style={project === "blixt" ? "height: 500px;" : "height: 300px;"}>
       <div>
-        <h1>{title}</h1>
-        <a href="https://blixtwallet.github.io" target="_blank">
-          <img src="/blixt.png" class="blixt-phone" />
-        </a>
+        <h1>
+          {title}{project === "noah" && (
+            <img src="/noah.png" class="noah-boat" style="width: 200px; margin-bottom: -50px;" />
+          )}
+        </h1>
+
+        {project === "blixt" && (
+          <a href="https://blixtwallet.github.io" target="_blank">
+            <img src="/blixt.png" class="blixt-phone" />
+          </a>
+        )}
       </div>
     </header>
     <section>
@@ -34,6 +42,34 @@ const { title } = Astro.props;
       </main>
     </section>
 	</body>
+	<script>
+		// Automatically add target="_blank" to all external links
+		document.addEventListener('DOMContentLoaded', function() {
+			const links = document.querySelectorAll('a[href]');
+			const currentDomain = window.location.hostname;
+
+			links.forEach(link => {
+				const href = link.getAttribute('href');
+
+				if (link.hasAttribute('target') || !href) {
+					return;
+				}
+
+				if (href.startsWith('http://') || href.startsWith('https://')) {
+					try {
+						const url = new URL(href);
+						if (url.hostname !== currentDomain) {
+							link.setAttribute('target', '_blank');
+							link.setAttribute('rel', 'noopener noreferrer');
+						}
+					} catch (e) {
+						link.setAttribute('target', '_blank');
+						link.setAttribute('rel', 'noopener noreferrer');
+					}
+				}
+			});
+		});
+	</script>
 </html>
 <style is:global>
 /* Built on top of normalize.css
@@ -160,6 +196,10 @@ pre {
   font-size: 1em;
 }
 
+code {
+  font-family: monospace, monospace;
+}
+
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
@@ -212,7 +252,6 @@ h1 {
 }
 
 .head {
-  height: 500px;
   padding-left: 100px;
   padding-right: 100px;
 }
@@ -233,6 +272,7 @@ h1 {
   width: 375px;
   transition: 100ms bottom ease-in;
 }
+
 
 /* .blixt-phone:hover {
   bottom: -330px;
@@ -264,6 +304,10 @@ main {
   }
 
   .blixt-phone {
+    display: none;
+  }
+
+  .noah-boat {
     display: none;
   }
 
