@@ -21,7 +21,7 @@ const { title, project } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-    <header class="head" style={project === "blixt" ? "height: 500px;" : "height: 300px;"}>
+    <header class={`head ${project === "blixt" ? "head-blixt" : "head-noah"}`}>
       <div>
         <h1>
           {title}{project === "noah" && (
@@ -254,6 +254,14 @@ h1 {
 .head {
   padding-left: 100px;
   padding-right: 100px;
+}
+
+.head-blixt {
+  height: 500px;
+}
+
+.head-noah {
+  height: 300px;
 }
 
 .head div {
